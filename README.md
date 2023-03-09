@@ -2,7 +2,7 @@
 
 My final test project from course Test Automation Selenium and Python
 
-## In progress
+## Work in progress
 
 Use the following command to run the tests
 
