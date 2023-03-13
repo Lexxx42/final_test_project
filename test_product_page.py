@@ -54,5 +54,23 @@ def test_message_disappeared_after_adding_product_to_basket(browser):
     page.add_to_basket()
     page.should_be_disappeared_success_message()
 
+
+@pytest.mark.adv_inheritance
+def test_guest_should_see_login_link_on_product_page(browser):
+    link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
+    page = ProductPage(browser, link)
+    page.open()
+    page.should_be_login_link()
+
+
+@pytest.mark.adv_inheritance
+def test_guest_can_go_to_login_page_from_product_page(browser):
+    link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
+    page = ProductPage(browser, link)
+    page.open()
+    page.go_to_login_page()
+    page.should_be_login_link()
+
 # pytest -v -s -rx --tb=line --language=en test_product_page.py
 # negative tests only: pytest -v -s -rx -m negative --tb=line --language=en test_product_page.py
+# inheritance advantages tests: pytest -v -s -rx -m adv_inheritance --tb=line --language=en test_product_page.py
