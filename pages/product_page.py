@@ -17,9 +17,9 @@ class ProductPage(BasePage):
         self.should_be_match_of_product_cost_and_basket_in_message()
 
     def should_be_match_of_product_name_and_basket_in_message(self):
-        """ Сообщение о том, что товар добавлен в корзину.
-        Название товара в сообщении должно совпадать с тем товаром,
-        который вы действительно добавили."""
+        ''' A message that the product has been added to the basket.
+        The name of the product in the message must match the product
+        which you actually added. '''
         self.should_be_message_of_added_product()
         self.should_be_product_name_message_match_product_name_card()
 
@@ -35,7 +35,8 @@ class ProductPage(BasePage):
             f'{product_name_in_message.text} should match {product_name_in_card.text}'
 
     def should_be_match_of_product_cost_and_basket_in_message(self):
-        """ Сообщение со стоимостью корзины. Стоимость корзины совпадает с ценой товара."""
+        ''' Message with the cost of the basket.
+        The cost of the basket is the same as the price of the product. '''
         self.should_be_message_of_basket_total()
         self.should_be_equal_basket_price_in_message_and_product_prise()
 
