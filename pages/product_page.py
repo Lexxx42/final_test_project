@@ -9,12 +9,8 @@ class ProductPage(BasePage):
 
     def add_to_basket(self):
         self.should_be_add_to_basket_button()
-        self.should_not_be_success_message()
         add_to_basket_button = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET_BUTTON)
         add_to_basket_button.click()
-        self.solve_quiz_and_get_code()
-        self.should_not_be_disappeared_button_add_to_basket()
-        self.should_be_correct_work_of_basket()
 
     def should_be_correct_work_of_basket(self):
         self.should_be_match_of_product_name_and_basket_in_message()
@@ -61,3 +57,7 @@ class ProductPage(BasePage):
     def should_not_be_disappeared_button_add_to_basket(self):
         assert not (self.is_disappeared(*ProductPageLocators.ADD_TO_BASKET_BUTTON)), \
             'Button Add to basket disappeared, but should not be'
+
+    def should_be_disappeared_success_message(self):
+        assert (self.is_disappeared(*ProductPageLocators.MESSAGE_WITH_PRODUCT_NAME)), \
+            'Success message should be disappeared, but still present'
