@@ -1,3 +1,9 @@
+''' Tests for product page.
+\nCode for tests start: pytest -v -s -rx --tb=line --language=en test_product_page.py
+\nCode for negative tests only: pytest -v -s -rx -m negative --tb=line --language=en test_product_page.py
+\nCode for inheritance advantages tests: pytest -v -s -rx -m adv_inheritance --tb=line --language=en test_product_page.py
+'''
+
 import pytest
 from .pages.product_page import ProductPage
 

@@ -1,3 +1,5 @@
+''' Page Object for the product page. '''
+
 from .base_page import BasePage
 from .locators import ProductPageLocators
 
