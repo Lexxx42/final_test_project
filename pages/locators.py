@@ -32,4 +32,4 @@ class ProductPageLocators():
 
 class BasketPageLocators():
     BASKET_LIST = (By.CSS_SELECTOR, '.basket-title')
-    NOTIFICATION_EMPTY_BASKET = (By.CSS_SELECTOR, '#content_inner')
+    NOTIFICATION_EMPTY_BASKET = (By.CSS_SELECTOR, '#content_inner > p')
