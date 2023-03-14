@@ -7,11 +7,11 @@ from .locators import ProductPageLocators
 class ProductPage(BasePage):
     def should_be_add_to_basket_button(self):
         assert self.is_element_present(
-            *ProductPageLocators.ADD_TO_BASKET_BUTTON), f'No Add to basket button on {self.url} page'
+            *ProductPageLocators.BUTTON_ADD_TO_BASKET), f'No Add to basket button on {self.url} page'
 
     def add_to_basket(self):
         self.should_be_add_to_basket_button()
-        add_to_basket_button = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET_BUTTON)
+        add_to_basket_button = self.browser.find_element(*ProductPageLocators.BUTTON_ADD_TO_BASKET)
         add_to_basket_button.click()
 
     def should_be_correct_work_of_basket(self):
@@ -58,7 +58,7 @@ class ProductPage(BasePage):
             'Success message is presented, but should not be'
 
     def should_not_be_disappeared_button_add_to_basket(self):
-        assert not (self.is_disappeared(*ProductPageLocators.ADD_TO_BASKET_BUTTON)), \
+        assert not (self.is_disappeared(*ProductPageLocators.BUTTON_ADD_TO_BASKET)), \
             'Button Add to basket disappeared, but should not be'
 
     def should_be_disappeared_success_message(self):

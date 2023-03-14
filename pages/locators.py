@@ -6,6 +6,7 @@ from selenium.webdriver.common.by import By
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, '#login_link')
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, '#login_link_inc')
+    BUTTON_VIEW_BUSKET = (By.CSS_SELECTOR, 'div .basket-mini .btn:nth-child(1)')
 
 
 class MainPageLocators():
@@ -18,7 +19,7 @@ class LoginPageLocators():
 
 
 class ProductPageLocators():
-    ADD_TO_BASKET_BUTTON = (By.XPATH, '//form[@class="add-to-basket"]/button')
+    BUTTON_ADD_TO_BASKET = (By.XPATH, '//form[@class="add-to-basket"]/button')
 
     MESSAGE_WITH_PRODUCT_NAME = (By.CSS_SELECTOR, 'div.alert:nth-child(1)')
     PRODUCT_NAME_IN_MESSAGE = (By.CSS_SELECTOR, 'div.alert:nth-child(1) strong')
@@ -27,3 +28,8 @@ class ProductPageLocators():
     MESSAGE_OF_BASKET_COST = (By.CSS_SELECTOR, 'div.alert:nth-child(3)')
     BASKET_COST_IN_MESSAGE = (By.CSS_SELECTOR, 'div.alertinner p strong')
     COST_OF_PRODUCT = (By.CSS_SELECTOR, '.price_color:nth-child(2)')
+
+
+class BasketPageLocators():
+    BASKET_LIST = (By.CSS_SELECTOR, '.basket-title')
+    NOTIFICATION_EMPTY_BASKET = (By.CSS_SELECTOR, '#content_inner')

@@ -6,6 +6,7 @@
 
 import pytest
 from .pages.product_page import ProductPage
+from .pages.basket_page import BasketPage
 
 LINK = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/'
 
@@ -77,6 +78,19 @@ def test_guest_can_go_to_login_page_from_product_page(browser):
     page.go_to_login_page()
     page.should_be_login_link()
 
+
+@pytest.mark.basket
+def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
+    link = 'http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/'
+    page = ProductPage(browser, link)
+    page.open()
+    page.should_be_basket_link()
+    page.go_to_basket_page()
+    basket_page = BasketPage(browser, browser.current_url)
+    basket_page.should_not_be_product_list_if_basket_is_empty()
+    basket_page.should_be_notification_about_empty_basket_if_basket_is_empty()
+
 # pytest -v -s -rx --tb=line --language=en test_product_page.py
 # negative tests only: pytest -v -s -rx -m negative --tb=line --language=en test_product_page.py
 # inheritance advantages tests: pytest -v -s -rx -m adv_inheritance --tb=line --language=en test_product_page.py
+# basket tests only: pytest -v -s -rx -m basket --tb=line --language=en test_product_page.py
