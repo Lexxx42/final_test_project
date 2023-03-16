@@ -5,8 +5,10 @@
 '''
 
 import pytest
+import time
 from .pages.product_page import ProductPage
 from .pages.basket_page import BasketPage
+from .pages.login_page import LoginPage
 
 LINK = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/'
 
@@ -90,7 +92,37 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     basket_page.should_not_be_product_list_if_basket_is_empty()
     basket_page.should_be_notification_about_empty_basket_if_basket_is_empty()
 
+
+@pytest.mark.user_tests_with_registartion
+class TestUserAddToBasketFromProductPage():
+    @pytest.fixture(scope="function", autouse=True)
+    def setup(self, browser):
+        link = 'http://selenium1py.pythonanywhere.com/'
+        page = ProductPage(browser, link)
+        new_user_email = str(time.time()) + "@fakemail.org"
+        new_user_paswd = 'strong_pass1'
+        page.open()
+        page.go_to_login_page()
+        login_page = LoginPage(browser, browser.current_url)
+        login_page.register_new_user(new_user_email, new_user_paswd)
+        login_page.should_be_authorized_user()
+
+    def test_user_cant_see_success_message(self, browser):
+        link = 'http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/'
+        page = ProductPage(browser, link, timeout=0)
+        page.open()
+        page.should_not_be_success_message()
+
+    def test_user_can_add_product_to_basket(self, browser):
+        link = 'http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/'
+        page = ProductPage(browser, link)
+        page.open()
+        page.add_to_basket()
+        page.should_not_be_disappeared_button_add_to_basket()
+        page.should_be_correct_work_of_basket()
+
 # pytest -v -s -rx --tb=line --language=en test_product_page.py
 # negative tests only: pytest -v -s -rx -m negative --tb=line --language=en test_product_page.py
 # inheritance advantages tests: pytest -v -s -rx -m adv_inheritance --tb=line --language=en test_product_page.py
 # basket tests only: pytest -v -s -rx -m basket --tb=line --language=en test_product_page.py
+# tests for users: pytest -v -s -rx -m user_tests_with_registartion --tb=line --language=en test_product_page.py
