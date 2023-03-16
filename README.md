@@ -70,6 +70,8 @@ pytest -v --tb=line --language=en --browser_name=firefox .
 ['ru', 'en', 'fr', 'es']
 ```
 
+Example:
+
 ```shell
 pytest -v --tb=line --language=fr .
 ```
