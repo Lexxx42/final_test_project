@@ -4,6 +4,7 @@
 \nInheritance advantages tests: pytest -v -s -rx -m adv_inheritance --tb=line --language=en test_product_page.py
 \nBasket tests: pytest -v -s -rx -m basket --tb=line --language=en test_product_page.py
 \nUser test: pytest -v -s -rx -m user_tests_with_registartion --tb=line --language=en test_product_page.py
+\nReview tests: pytest -v --tb=line --language=en -m need_review
 '''
 
 import pytest
