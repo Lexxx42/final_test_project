@@ -1,7 +1,9 @@
 ''' Tests for product page.
-\nCode for tests start: pytest -v -s -rx --tb=line --language=en test_product_page.py
-\nCode for negative tests only: pytest -v -s -rx -m negative --tb=line --language=en test_product_page.py
-\nCode for inheritance advantages tests: pytest -v -s -rx -m adv_inheritance --tb=line --language=en test_product_page.py
+\nCode for all tests: pytest -v -s -rx --tb=line --language=en test_product_page.py
+\nNegative tests only: pytest -v -s -rx -m negative --tb=line --language=en test_product_page.py
+\nInheritance advantages tests: pytest -v -s -rx -m adv_inheritance --tb=line --language=en test_product_page.py
+\nBasket tests: pytest -v -s -rx -m basket --tb=line --language=en test_product_page.py
+\nUser test: pytest -v -s -rx -m user_tests_with_registartion --tb=line --language=en test_product_page.py
 '''
 
 import pytest
@@ -28,8 +30,6 @@ LINK = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/'
                                   'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer8',
                                   'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer9'])
 def test_guest_can_add_product_to_basket(browser, link):
-    # link = 'http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear'
-    # link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019'
     page = ProductPage(browser, link)
     page.open()
     page.should_not_be_success_message()
@@ -120,9 +120,3 @@ class TestUserAddToBasketFromProductPage():
         page.add_to_basket()
         page.should_not_be_disappeared_button_add_to_basket()
         page.should_be_correct_work_of_basket()
-
-# pytest -v -s -rx --tb=line --language=en test_product_page.py
-# negative tests only: pytest -v -s -rx -m negative --tb=line --language=en test_product_page.py
-# inheritance advantages tests: pytest -v -s -rx -m adv_inheritance --tb=line --language=en test_product_page.py
-# basket tests only: pytest -v -s -rx -m basket --tb=line --language=en test_product_page.py
-# tests for users: pytest -v -s -rx -m user_tests_with_registartion --tb=line --language=en test_product_page.py
