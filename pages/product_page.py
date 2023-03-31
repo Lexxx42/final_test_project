@@ -2,6 +2,7 @@
 
 from .base_page import BasePage
 from .locators import ProductPageLocators
+from .. import logging
 
 
 class ProductPage(BasePage):
@@ -55,7 +56,7 @@ class ProductPage(BasePage):
 
     def should_not_be_success_message(self):
         assert self.is_not_element_present(*ProductPageLocators.MESSAGE_WITH_PRODUCT_NAME), \
-            'Success message is presented, but should not be'
+            logging.info('Success message is presented, but should not be')
 
     def should_not_be_disappeared_button_add_to_basket(self):
         assert not (self.is_disappeared(*ProductPageLocators.BUTTON_ADD_TO_BASKET)), \
