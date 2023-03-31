@@ -1,3 +1,3 @@
-from .logger import logging
+from .logger import LOGGER
 
-__all__ = ['logging']
+__all__ = ['LOGGER']
