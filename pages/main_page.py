@@ -1,4 +1,4 @@
-''' Page Object for the main page. '''
+""" Page Object for the main page. """
 
 from .base_page import BasePage
 

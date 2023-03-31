@@ -1,4 +1,4 @@
-''' Locators for tests. '''
+""" Locators for tests. """
 
 from selenium.webdriver.common.by import By
 
