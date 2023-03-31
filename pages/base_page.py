@@ -54,7 +54,7 @@ class BasePage():
             LOGGER.info(f'Your code: {alert_text}')
             alert.accept()
         except NoAlertPresentException:
-            LOGGER.critical('No second alert presented')
+            LOGGER.info('No second alert presented')
 
     def is_not_element_present(self, how, what, timeout=4):
         try:
