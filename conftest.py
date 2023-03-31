@@ -1,4 +1,4 @@
-''' Configuration file for Pytest module. '''
+""" Configuration file for Pytest module. """
 
 import pytest
 from selenium import webdriver

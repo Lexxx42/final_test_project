@@ -1,4 +1,4 @@
-''' Page Object for the basket page. '''
+""" Page Object for the basket page. """
 
 from .base_page import BasePage
 from .locators import BasketPageLocators
