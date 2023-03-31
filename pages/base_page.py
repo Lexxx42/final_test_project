@@ -7,6 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from math import log, sin
 from .locators import BasePageLocators
+from .. import LOGGER
 
 
 class BasePage():
@@ -23,14 +24,16 @@ class BasePage():
         link.click()
 
     def should_be_authorized_user(self):
-        assert self.is_element_present(*BasePageLocators.USER_ICON), 'User icon is not presented,' \
-                                                                     ' probably unauthorised user'
+        assert self.is_element_present(*BasePageLocators.USER_ICON), \
+            LOGGER.error('User icon is not presented, probably unauthorised user')
 
     def should_be_login_link(self):
-        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), 'Login link is not presented'
+        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), \
+            LOGGER.error('Login link is not presented')
 
     def should_be_basket_link(self):
-        assert self.is_element_present(*BasePageLocators.BUTTON_VIEW_BUSKET), 'Basket link is not presented'
+        assert self.is_element_present(*BasePageLocators.BUTTON_VIEW_BUSKET), \
+            LOGGER.error('Basket link is not presented')
 
     def is_element_present(self, how, what):
         try:
@@ -48,10 +51,10 @@ class BasePage():
         try:
             alert = self.browser.switch_to.alert
             alert_text = alert.text
-            print(f'Your code: {alert_text}')
+            LOGGER.info(f'Your code: {alert_text}')
             alert.accept()
         except NoAlertPresentException:
-            print('No second alert presented')
+            LOGGER.critical('No second alert presented')
 
     def is_not_element_present(self, how, what, timeout=4):
         try:
