@@ -24,7 +24,6 @@ RUN set -eux; \
         curl \
         unzip \
         bzip2 \
-        bzip2-libs \
     ; \
     apt-get purge -y firefox; \
     wget -O FirefoxSetup.tar.bz2 "https://download.mozilla.org/?product=firefox-${FIREFOX_VERSION}&os=linux64"; \
