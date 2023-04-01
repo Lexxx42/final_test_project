@@ -24,11 +24,15 @@ def browser(request):
     browser = None
     if browser_name == 'chrome':
         options = chromeOptions()
+        # headless setup, comment if you neeed to see a browser window!
+        options.add_argument("--headless=new")
         options.add_experimental_option('prefs', {'intl.accept_languages': language})
         print('\nstart chrome browser for test..')
         browser = webdriver.Chrome(options=options)
     elif browser_name == 'firefox':
         options = firefoxOptions()
+        # headless setup, comment if you neeed to see a browser window!
+        options.add_argument("-headless")
         options.set_preference('intl.accept_languages', language)
         print('\nstart firefox browser for test..')
         browser = webdriver.Firefox(options=options)
