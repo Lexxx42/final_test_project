@@ -1,0 +1,13 @@
+# version of docker-compose
+version: '3'
+
+# services list
+services:
+    # we have only one (let's call it app)
+    autotests:
+        # build image with default settings (from Dockerfile) from current dir
+        build: .
+        image: autotest_pytest
+        stop_signal: SIGINT
+        volumes:
+            - ./logs:/autotests/logs
