@@ -47,4 +47,4 @@ COPY . .
 RUN pip3 install -r requirements.txt
 
 # start script after container start
-ENTRYPOINT ["python3", "app.py"]
+ENTRYPOINT ["python3"]
