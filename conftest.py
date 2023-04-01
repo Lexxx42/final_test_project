@@ -1,9 +1,11 @@
 """ Configuration file for Pytest module. """
 
+import os
 import pytest
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options as firefoxOptions
 from selenium.webdriver.chrome.options import Options as chromeOptions
+from selenium.webdriver.firefox.service import Service as FirefoxService
 
 LANGUAGES = ['ru', 'en', 'fr', 'es']
 
@@ -24,14 +26,35 @@ def browser(request):
     browser = None
     if browser_name == 'chrome':
         options = chromeOptions()
+        # headless setup, comment if you neeed to see a browser window!
+        options.add_argument("--headless=new")
         options.add_experimental_option('prefs', {'intl.accept_languages': language})
         print('\nstart chrome browser for test..')
         browser = webdriver.Chrome(options=options)
     elif browser_name == 'firefox':
+        # windows setup
+        """
         options = firefoxOptions()
+        # headless setup, comment if you neeed to see a browser window!
+        options.add_argument("-headless")
         options.set_preference('intl.accept_languages', language)
         print('\nstart firefox browser for test..')
         browser = webdriver.Firefox(options=options)
+        """
+        # linux setup
+        install_dir = "/snap/firefox/current/usr/lib/firefox"
+        driver_loc = os.path.join(install_dir, "geckodriver")
+        binary_loc = os.path.join(install_dir, "firefox")
+
+        service = FirefoxService(driver_loc)
+        options = webdriver.FirefoxOptions()
+        options.binary_location = binary_loc
+        # headless setup, comment if you neeed to see a browser window!
+        options.add_argument("-headless")
+        options.set_preference('intl.accept_languages', language)
+
+        print('\nstart firefox browser for test..')
+        browser = webdriver.Firefox(service=service, options=options)
     else:
         raise pytest.UsageError('--browser_name should be chrome or firefox')
     yield browser
