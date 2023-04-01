@@ -75,3 +75,13 @@ Example:
 ```shell
 pytest -v --tb=line --language=fr .
 ```
+
+# tests for container. Not safe! Untested
+
+```shell
+pytest -v -s -rx -m negative --browser_name=firefox
+```
+
+```shell
+pytest -v -s -rx -m negative
+```
