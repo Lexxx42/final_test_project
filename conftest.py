@@ -42,7 +42,9 @@ def browser(request):
         browser = webdriver.Firefox(options=options)
         """
         # linux setup
-        install_dir = "/snap/firefox/current/usr/lib/firefox"
+        #install_dir = "/snap/firefox/current/usr/lib/firefox"
+        # container setup
+        install_dir = "."
         driver_loc = os.path.join(install_dir, "geckodriver")
         binary_loc = os.path.join(install_dir, "firefox")
 
