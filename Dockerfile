@@ -2,7 +2,7 @@
 FROM ubuntu
 ARG DEBIAN_FRONTEND=noninteractive
 
-ENV CHROME_VERSION "111.0.5563.64"
+ENV CHROME_VERSION "111.0.5563.146-1"
 ENV FIREFOX_VERSION "111.0.1"
 
 # installing of work directory (by default) in image
@@ -31,7 +31,7 @@ RUN set -eux; \
     wget --no-check-certificate https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${CHROME_VERSION}_amd64.deb; \
     apt-get install -qqyf ./google-chrome-stable_${CHROME_VERSION}_amd64.deb; \
     rm google-chrome-stable_${CHROME_VERSION}_amd64.deb; \
-    wget https://chromedriver.storage.googleapis.com/${CHROME_VERSION}/chromedriver_linux64.zip; \
+    wget https://chromedriver.storage.googleapis.com/111.0.5563.64/chromedriver_linux64.zip; \
     unzip chromedriver_linux64.zip; \
     mv /usr/bin/google-chrome-stable /usr/bin/google-chrome; \
     wget https://github.com/mozilla/geckodriver/releases/download/v0.32.2/geckodriver-v0.32.2-linux64.tar.gz; \
