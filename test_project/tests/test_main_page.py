@@ -1,13 +1,13 @@
 """ Tests for main page.
-\nCode for all tests: pytest -v --tb=line --language=en test_main_page.py
-\nBasket tests only: pytest -v -s -rx -m basket --tb=line --language=en test_main_page.py
-\nLogin guest tests: pytest -v -s -rx -m login_guest --tb=line --language=en test_main_page.py
+\nCode for all tests: pytest -v --tb=line --language=en test_project/tests/test_main_page.py
+\nBasket tests only: pytest -v -s -rx -m basket --tb=line --language=en test_project/tests/test_main_page.py
+\nLogin guest tests: pytest -v -s -rx -m login_guest --tb=line --language=en test_project/tests/test_main_page.py
 """
 
 import pytest
-from .pages.main_page import MainPage
-from .pages.login_page import LoginPage
-from .pages.basket_page import BasketPage
+from .. import MainPage
+from .. import LoginPage
+from .. import BasketPage
 
 
 @pytest.mark.login_guest

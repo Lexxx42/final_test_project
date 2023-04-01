@@ -30,7 +30,7 @@ pytest -v --tb=line --language=en .
 2. Clone this repository using following command
 
 ```shell
-git clone https://github.com/Lexxx42/Pytest-different-locales.git
+git clone https://github.com/Lexxx42/final_test_project.git
 ```
 
 3. Install [Python 3.11](https://www.python.org/downloads/) if you haven't already

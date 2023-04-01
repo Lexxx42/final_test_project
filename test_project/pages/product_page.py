@@ -1,6 +1,5 @@
 """ Page Object for the product page. """
 
-import logging
 from .base_page import BasePage
 from .locators import ProductPageLocators
 from .. import LOGGER
