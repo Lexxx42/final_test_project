@@ -44,7 +44,7 @@ def browser(request):
         # linux setup
         #install_dir = "/snap/firefox/current/usr/lib/firefox"
         # container setup
-        install_dir = "."
+        install_dir = "usr/lib/firefox/firefox"
         driver_loc = os.path.join(install_dir, "geckodriver")
         binary_loc = os.path.join(install_dir, "firefox")
 

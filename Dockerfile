@@ -27,8 +27,8 @@ RUN set -eux; \
     ; \
     apt-get purge -y firefox; \
     wget -O FirefoxSetup.tar.bz2 "https://download.mozilla.org/?product=firefox-${FIREFOX_VERSION}&os=linux64"; \
-    tar xjf ~/FirefoxSetup.tar.bz2 -C /opt/; \
-    ln -s /opt/firefox/firefox /usr/lib/firefox/firefox; \
+    tar xjf ~/FirefoxSetup.tar.bz2; \
+    ln -s firefox/firefox /usr/lib/firefox/firefox; \
     wget --no-check-certificate https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${CHROME_VERSION}_amd64.deb; \
     apt-get install -qqyf ./google-chrome-stable_${CHROME_VERSION}_amd64.deb; \
     rm google-chrome-stable_${CHROME_VERSION}_amd64.deb; \
