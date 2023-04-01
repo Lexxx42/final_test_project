@@ -49,6 +49,8 @@ def browser(request):
         service = FirefoxService(driver_loc)
         options = webdriver.FirefoxOptions()
         options.binary_location = binary_loc
+        # headless setup, comment if you neeed to see a browser window!
+        options.add_argument("-headless")
         options.set_preference('intl.accept_languages', language)
 
         print('\nstart firefox browser for test..')
