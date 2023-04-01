@@ -1,8 +1,8 @@
 """ Tests for login page.
-\nCode for all tests: pytest -v --tb=line --language=en test_login_page.py
+\nCode for all tests: pytest -v --tb=line --language=en test_project/tests/test_login_page.py
 """
 
-from .pages.login_page import LoginPage
+from .. import LoginPage
 
 LINK = 'http://selenium1py.pythonanywhere.com/en-gb/accounts/login/'
 

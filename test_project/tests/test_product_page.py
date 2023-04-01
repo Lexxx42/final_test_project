@@ -1,17 +1,17 @@
 """ Tests for product page.
-\nCode for all tests: pytest -v -s -rx --tb=line --language=en test_product_page.py
-\nNegative tests only: pytest -v -s -rx -m negative --tb=line --language=en test_product_page.py
-\nInheritance advantages tests: pytest -v -s -rx -m adv_inheritance --tb=line --language=en test_product_page.py
-\nBasket tests: pytest -v -s -rx -m basket --tb=line --language=en test_product_page.py
-\nUser test: pytest -v -s -rx -m user_tests_with_registartion --tb=line --language=en test_product_page.py
+\nCode for all tests: pytest -v -s -rx --tb=line --language=en test_project/tests/test_product_page.py
+\nNegative tests only: pytest -v -s -rx -m negative --tb=line --language=en test_project/tests/test_product_page.py
+\nInheritance advantages tests: pytest -v -s -rx -m adv_inheritance --tb=line --language=en test_project/tests/test_product_page.py
+\nBasket tests: pytest -v -s -rx -m basket --tb=line --language=en test_project/tests/test_product_page.py
+\nUser test: pytest -v -s -rx -m user_tests_with_registartion --tb=line --language=en test_project/tests/test_product_page.py
 \nReview tests: pytest -v --tb=line --language=en -m need_review
 """
 
 import pytest
 import time
-from .pages.product_page import ProductPage
-from .pages.basket_page import BasketPage
-from .pages.login_page import LoginPage
+from .. import ProductPage
+from .. import BasketPage
+from .. import LoginPage
 
 LINK = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/'
 
