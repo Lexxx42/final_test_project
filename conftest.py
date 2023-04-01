@@ -1,9 +1,11 @@
 """ Configuration file for Pytest module. """
 
+import os
 import pytest
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options as firefoxOptions
 from selenium.webdriver.chrome.options import Options as chromeOptions
+from selenium.webdriver.firefox.service import Service as FirefoxService
 
 LANGUAGES = ['ru', 'en', 'fr', 'es']
 
