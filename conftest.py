@@ -11,7 +11,7 @@ LANGUAGES = ['ru', 'en', 'fr', 'es']
 
 
 def pytest_addoption(parser):
-    ''' Pars command line options. '''
+    """ Pars command line options. """
     parser.addoption('--browser_name', action='store', default='chrome',
                      help="Choose browser: chrome or firefox")
     parser.addoption('--language', action='store', default='en',
@@ -20,7 +20,7 @@ def pytest_addoption(parser):
 
 @pytest.fixture(scope='function')
 def browser(request):
-    ''' Browser configuration. '''
+    """ Browser configuration. """
     browser_name = request.config.getoption('browser_name')
     language = request.config.getoption('language')
     browser = None
@@ -42,12 +42,17 @@ def browser(request):
         browser = webdriver.Firefox(options=options)
         """
         # linux setup
-        #install_dir = "/snap/firefox/current/usr/lib/firefox"
+        """
+        install_dir = "/snap/firefox/current/usr/lib/firefox"
+        driver_loc = os.path.join(install_dir, "geckodriver")
+        binary_loc = os.path.join(install_dir, "firefox")
+        """
+
         # container setup
-        # install_dir = "/usr/bin/"
         driver_loc = "/usr/local/bin/geckodriver"
         binary_loc = "/usr/lib/firefox/firefox"
 
+        # linux setup
         service = FirefoxService(driver_loc)
         options = webdriver.FirefoxOptions()
         options.binary_location = binary_loc
