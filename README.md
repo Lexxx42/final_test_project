@@ -79,7 +79,7 @@ pytest -v --tb=line --language=fr .
 # tests for container. Not safe! Untested
 
 ```shell
-pytest -v -s -rx -m negative --browser_name=firefox
+docker run autotest_pytest pytest -v -s -rx -m negative --browser_name=firefox
 ```
 
 ```shell
