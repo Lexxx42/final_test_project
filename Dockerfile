@@ -38,7 +38,7 @@ RUN set -eux; \
     wget https://github.com/mozilla/geckodriver/releases/download/v0.32.2/geckodriver-v0.32.2-linux64.tar.gz; \
     tar -xvzf geckodriver*; \
     chmod +x geckodriver; \
-    mv geckodriver /usr/local/bin/; \
+    mv geckodriver /usr/bin/firefox; \
 	rm -rf /var/lib/apt/lists/*
 
 # copying project to image
