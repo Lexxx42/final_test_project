@@ -10,4 +10,11 @@ services:
         image: autotest_pytest
         stop_signal: SIGINT
         volumes:
-            - ./logs:/autotests/test_project/logs:rw
+            - my-volume:/autotests/test_project/logs:rw
+volumes:
+  my-volume:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./logs
