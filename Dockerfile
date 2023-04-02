@@ -8,6 +8,9 @@ ENV FIREFOX_VERSION "111.0.1"
 # installing of work directory (by default) in image
 WORKDIR /autotests
 
+# Add a /autotests/logs volume
+VOLUME ["/autotests/logs"]
+
 # installing of requirements
 RUN set -eux; \
 	apt-get update; \
