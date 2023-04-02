@@ -26,6 +26,12 @@ RUN set -eux; \
         bzip2 \
         glibc-source \
         libstdc++6 \
+        libxtst6 \
+        libgtk-3-0 \
+        libx11-xcb-dev \
+        libdbus-glib-1-2 \
+        libxt6 \
+        libpci-dev \
         xorg \
         openbox \
     ; \
