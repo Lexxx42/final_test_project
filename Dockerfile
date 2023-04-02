@@ -9,7 +9,7 @@ ENV FIREFOX_VERSION "111.0.1"
 WORKDIR /autotests
 
 # Add a /autotests/logs volume
-VOLUME ["/autotests/logs"]
+VOLUME ["/logs"]
 
 # installing of requirements
 RUN set -eux; \
