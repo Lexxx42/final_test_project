@@ -10,4 +10,4 @@ services:
         image: autotest_pytest
         stop_signal: SIGINT
         volumes:
-            - logs:/autotests/logs
+            - ./logs:/autotests/logs
