@@ -85,5 +85,5 @@ docker run -v ~/logs:/autotests/test_project/logs autotest_pytest pytest -v -s -
 ```
 
 ```shell
-pytest -v -s -rx -m negative
+docker run autotest_pytest pytest -v -s -rx -m negative
 ```
