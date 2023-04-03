@@ -34,6 +34,10 @@ RUN set -eux; \
         libpci-dev \
         xorg \
         openbox \
+        openjdk-8-jre-headless \
+        xvfb \
+        libxi6 \
+        libgconf-2-4 \
     ; \
     apt-get purge -y firefox; \
     wget -O FirefoxSetup.tar.bz2 "https://download.mozilla.org/?product=firefox-${FIREFOX_VERSION}&os=linux64"; \
@@ -42,7 +46,7 @@ RUN set -eux; \
     wget --no-check-certificate https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${CHROME_VERSION}_amd64.deb; \
     apt-get install -qqyf ./google-chrome-stable_${CHROME_VERSION}_amd64.deb; \
     rm google-chrome-stable_${CHROME_VERSION}_amd64.deb; \
-    wget https://chromedriver.storage.googleapis.com/111.0.5563.64/chromedriver_linux64.zip; \
+    wget --no-check-certificate https://chromedriver.storage.googleapis.com/111.0.5563.64/chromedriver_linux64.zip; \
     unzip chromedriver_linux64.zip; \
     mv /usr/bin/google-chrome-stable /usr/bin/google-chrome; \
     wget https://github.com/mozilla/geckodriver/releases/download/v0.32.2/geckodriver-v0.32.2-linux64.tar.gz; \
