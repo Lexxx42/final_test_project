@@ -78,6 +78,8 @@ pytest -v --tb=line --language=fr .
 
 # tests for container. Not safe! Untested
 
+## create folder `logs` in clonned repository
+
 ```shell
 docker run autotest_pytest pytest -v -s -rx -m negative --browser_name=firefox
 ```
