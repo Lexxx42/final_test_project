@@ -26,8 +26,10 @@ def browser(request):
     browser = None
     if browser_name == 'chrome':
         options = chromeOptions()
-        # headless setup, comment if you neeed to see a browser window!
+        # headless setup, comment if you need to see a browser window!
         options.add_argument("--headless=new")
+        options.add_argument("--disable-dev-shm-usage")  # overcome limited resource problems
+        options.add_argument("--no-sandbox")  # Bypass OS security model
         options.add_experimental_option('prefs', {'intl.accept_languages': language})
         print('\nstart chrome browser for test..')
         browser = webdriver.Chrome(options=options)
@@ -56,7 +58,7 @@ def browser(request):
         service = FirefoxService(driver_loc)
         options = webdriver.FirefoxOptions()
         options.binary_location = binary_loc
-        # headless setup, comment if you neeed to see a browser window!
+        # headless setup, comment if you need to see a browser window!
         options.add_argument("-headless")
         options.set_preference('intl.accept_languages', language)
 
