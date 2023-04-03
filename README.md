@@ -81,7 +81,7 @@ pytest -v --tb=line --language=fr .
 ## create folder `logs` in clonned repository
 
 ```shell
-docker run -v alex/home/logs:/autotests/test_project/logs autotest_pytest pytest -v -s -rx -m negative --browser_name=firefox
+docker run -v ~/logs:/autotests/test_project/logs autotest_pytest pytest -v -s -rx -m negative --browser_name=firefox
 ```
 
 ```shell
