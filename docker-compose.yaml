@@ -11,6 +11,8 @@ services:
     stop_signal: SIGINT
     volumes:
       - my-volume:/autotests/test_project/logs:rw
+    environment:
+      - TZ=Europe/Moscow
 volumes:
   my-volume:
     driver: local
