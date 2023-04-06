@@ -76,14 +76,50 @@ Example:
 pytest -v --tb=line --language=fr .
 ```
 
-# tests for container. Not safe! Untested
+## Use this sequence of commands to run the container:
 
-## create folder `logs` in clonned repository
+1. To run the application in docker, you need to install docker-compose:
+
+```shell
+sudo apt install docker-compose 
+```
+
+2. Clone the repository
+
+```shell
+git clone https://github.com/Lexxx42/final_test_project.git
+```
+
+3. Change directory to project dir
+
+```shell
+cd final_test_project/
+```
+
+4. Create folder `logs` in clonned repository
+
+```shell
+mkdir logs
+```
+
+5. Start the build
+
+```shell
+docker-compose up --build
+```
+
+6. You can set ENTRYPOIN in docker-compose.yaml to start tests right away. Or use the commands with your docker image.
+
+With volume if you need logs in a file. (Directory `logs` must be created before use of the command)
 
 ```shell
 docker run -v ~/logs:/autotests/test_project/logs autotest_pytest pytest -v -s -rx -m negative --browser_name=firefox
 ```
 
+And without volume.
+
 ```shell
 docker run autotest_pytest pytest -v -s -rx -m negative
 ```
+
+You are free to use all the test markings and/or files in this repository in a docker container.
