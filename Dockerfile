@@ -59,6 +59,3 @@ RUN echo "Chrome: " && google-chrome --version
 
 # installing requirements from pip
 RUN pip3 install -r requirements.txt
-
-# start script after container start
-ENTRYPOINT ["pytest", "-v", "-s", "-rx", "-m", "negative"]
