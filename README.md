@@ -19,6 +19,7 @@ pytest -v --tb=line --language=en .
 + [ChromeDriver](https://chromedriver.chromium.org/downloads)
 + [geckodriver](https://github.com/mozilla/geckodriver/releases)
 + [pytest](https://docs.pytest.org/en/7.2.x/getting-started.html)
++ [docker](https://docs.docker.com/desktop/install/linux-install/)
 
 ## Link to the course
 
