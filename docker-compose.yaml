@@ -3,7 +3,7 @@ version: '3'
 
 # services list
 services:
-  # we have only one (let's call it app)
+  # we have only one (let's call it autotests)
   autotests:
     # build image with default settings (from Dockerfile) from current dir
     build: .

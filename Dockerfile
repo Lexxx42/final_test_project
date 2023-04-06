@@ -54,8 +54,5 @@ RUN set -eux; \
 # copying project to image
 COPY . .
 
-# Check chrome version
-RUN echo "Chrome: " && google-chrome --version
-
 # installing requirements from pip
 RUN pip3 install -r requirements.txt
