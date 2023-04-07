@@ -39,8 +39,9 @@ def browser(request):
         options.add_argument("--disable-dev-shm-usage")  # overcome limited resource problems
         options.add_argument("--no-sandbox")  # Bypass OS security model
         options.add_experimental_option('prefs', {'intl.accept_languages': language})
-        print('\nstart chrome browser for test..')
         browser = webdriver.Chrome(options=options)
+        capabilities = browser.capabilities
+        print(f'\nstart chrome browser {capabilities["browserVersion"]} for test..')
     elif browser_name == 'firefox':
         # windows setup
         """
