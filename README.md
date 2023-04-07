@@ -124,3 +124,41 @@ docker run autotest_pytest pytest -v -s -rx -m negative
 ```
 
 You are free to use all the test markings and/or files in this repository in a docker container.
+
+## Added feature to create html test reports
+
+> All reports saved to `/logs` directory
+
++ To use the feature use pytest commands without `-s` argument to capture the logs
+
+```shell
+pytest -m negative --tb=line
+```
+
+```shell
+pytest -m negative --tb=line --browser_name=firefox
+```
+
++ You can use those commands with docker container
+
+```shell
+docker run autotest_pytest pytest -m negative --tb=line
+```
+
+```shell
+docker run autotest_pytest pytest -m negative --tb=line --browser_name=firefox
+```
+
+> Reports will be saved to `/logs` directory so mount a volume
+> You will need to create a directory `logs` in your current user's home directory
+> ```shell
+> mkdir logs
+>```
+
+```shell
+docker run -v ~/logs:/autotests/test_project/logs autotest_pytest pytest -m negative --tb=line --browser_name=firefox
+```
+
+```shell
+docker run -v ~/logs:/autotests/test_project/logs autotest_pytest pytest -m negative --tb=line
+```
