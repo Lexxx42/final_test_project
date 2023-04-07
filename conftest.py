@@ -2,12 +2,20 @@
 
 import os
 import pytest
+from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options as firefoxOptions
 from selenium.webdriver.chrome.options import Options as chromeOptions
 from selenium.webdriver.firefox.service import Service as FirefoxService
 
 LANGUAGES = ['ru', 'en', 'fr', 'es']
+
+
+@pytest.hookimpl(tryfirst=True)
+def pytest_configure(config):
+    cur_datetime = datetime.today().strftime('%Y%m%d%H%M%S')
+    config.option.htmlpath = os.path.join('test_project/', 'logs/', f'report_{cur_datetime}.html')
+    config.option.self_contained_html = True
 
 
 def pytest_addoption(parser):
