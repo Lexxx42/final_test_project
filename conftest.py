@@ -49,8 +49,9 @@ def browser(request):
         # headless setup, comment if you neeed to see a browser window!
         options.add_argument("-headless")
         options.set_preference('intl.accept_languages', language)
-        print('\nstart firefox browser for test..')
         browser = webdriver.Firefox(options=options)
+        capabilities = browser.capabilities
+        print(f'\nstart firefox browser {capabilities["browserVersion"]} for test..')
         """
         # linux setup
         """
@@ -63,16 +64,16 @@ def browser(request):
         driver_loc = "/usr/local/bin/geckodriver"
         binary_loc = "/usr/lib/firefox/firefox"
 
-        # linux setup
+        # linux setup + container
         service = FirefoxService(driver_loc)
         options = webdriver.FirefoxOptions()
         options.binary_location = binary_loc
         # headless setup, comment if you need to see a browser window!
         options.add_argument("-headless")
         options.set_preference('intl.accept_languages', language)
-
-        print('\nstart firefox browser for test..')
         browser = webdriver.Firefox(service=service, options=options)
+        capabilities = browser.capabilities
+        print(f'\nstart firefox browser {capabilities["browserVersion"]} for test..')
     else:
         raise pytest.UsageError('--browser_name should be chrome or firefox')
     yield browser
