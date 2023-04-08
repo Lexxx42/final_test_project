@@ -4,6 +4,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 ENV CHROME_VERSION "111.0.5563.146-1"
 ENV FIREFOX_VERSION "111.0.1"
+ENV TZ="Europe/Moscow"
 
 # installing of work directory (by default) in image
 WORKDIR /autotests
